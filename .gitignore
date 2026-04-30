@@ -17,4 +17,5 @@ __pycache__/
 .DS_Store
 
 #Bloomberg API
-data/bn
+PythonForFinance/impVolSurface/data
+PythonForFinance/impVolSurface/outputs

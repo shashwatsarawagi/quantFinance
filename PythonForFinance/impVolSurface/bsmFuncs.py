@@ -15,7 +15,7 @@ def bsm_vega(S: float, K: float, T: float, r: float, sigma: float) -> float:
     return vega
 
 
-def bsm_callImpVol(S: float, K: float, T: float, r: float, C: float, sigma_est: float, it : int = 100) -> float:
+def bsm_callImpVol(S: float, K: float, T: float, r: float, C: float, sigma_est: float = 0.3, it : int = 100) -> float:
     for _ in range(it):
         sigma_est -= ((bsm_callPrice(S, K, T, r, sigma_est) - C) / bsm_vega(S, K, T, r, sigma_est))
     return sigma_est
