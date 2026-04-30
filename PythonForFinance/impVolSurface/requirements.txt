@@ -1,0 +1,8 @@
+blpapi==3.26.3.1
+fastparquet
+matplotlib==3.10.8
+numpy
+pandas
+pyarrow
+scipy
+xbbg==1.2.1
