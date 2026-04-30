@@ -1,0 +1,16 @@
+# Python virtual environment
+bin/
+lib/
+include/
+pyvenv.cfg
+share/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
+
+# OS stuff
+.DS_Store
