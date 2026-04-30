@@ -2,7 +2,7 @@
 import numpy.random as npr
 import math
 import numpy as np
-from pylab import plt, mpl
+import matplotlib.pyplot as plt
 
 plt.style.use('seaborn')
 

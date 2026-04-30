@@ -2,9 +2,11 @@
 import warnings
 import numpy as np
 import pandas as pd
+import matplotlib as mlt
 import matplotlib.pyplot as plt
 from matplotlib import cm
 from datetime import date
+from typing import Tuple, cast
 
 # Local imports
 from bsmFuncs import bsm_callImpVol          # your existing BSM solver
@@ -24,7 +26,7 @@ def build_iv_dataframe(
     min_expiry_days: int = 7,
     max_expiry_days: int = 365,
     moneyness_band: float = 0.30,
-) -> tuple[pd.DataFrame, float]:
+) -> Tuple[pd.DataFrame, float]:
   
     
     #Pull Bloomberg data and build the initial DataFrame with spot, rate, div_yield, and option chain
@@ -41,7 +43,7 @@ def build_iv_dataframe(
     
     inputs = pd.read_parquet(BASE_DIR / f"data/{underlying}_{option_type}_surface_inputs.parquet").to_dict(orient="index")[0]
     
-    chain = pd.read_parquet(BASE_DIR / f"data/{underlying}_{option_type}_surface_chain.parquet")
+    chain: pd.DataFrame = pd.read_parquet(BASE_DIR / f"data/{underlying}_{option_type}_surface_chain.parquet")
     S        = inputs["spot"]
     r        = inputs["rate"]
     q        = inputs["div_yield"]
@@ -54,7 +56,7 @@ def build_iv_dataframe(
     n_expired = n_no_price = n_solver_fail = n_bounds_fail = 0
 
     for _, row in chain.iterrows():
-        dte = (pd.Timestamp(row["expiry"]).date() - today).days
+        dte = (pd.Timestamp(row["expiry"]).date() - today).days #type: ignore {pandas Timestamp accepts date objects but Pylance doesn't know that}
         T   = dte / 365.0
 
         if T <= 0:
@@ -150,12 +152,12 @@ def plot_iv_surface(iv_df: pd.DataFrame, spot: float, underlying: str = "AAPL US
     ax3d = fig.add_subplot(121, projection="3d")
 
     # Use T (years) for the x-axis and moneyness K/S for y
-    X = iv_df["T"].values
-    Y = (iv_df["strike"] / spot).values        # moneyness K/S
-    Z = iv_df["iv"].values * 100               # in percent
+    X = iv_df["T"].to_numpy()
+    Y = (iv_df["strike"] / spot).to_numpy()        # moneyness K/S
+    Z = iv_df["iv"].to_numpy() * 100             # in percent
 
     # Scatter (reliable even with sparse data)
-    sc = ax3d.scatter(X, Y, Z, c=Z, cmap=cm.RdYlGn_r, s=18, alpha=0.85)
+    sc = ax3d.scatter(X, Y, Z, c=Z, cmap='RdYlGn_r', s=18, alpha=0.85) #type: ignore {matplotlib scatter typehints int but accepts array-like}
     fig.colorbar(sc, ax=ax3d, shrink=0.5, label="IV (%)")
 
     ax3d.set_xlabel("Time to Expiry (yrs)", labelpad=8)
@@ -168,7 +170,7 @@ def plot_iv_surface(iv_df: pd.DataFrame, spot: float, underlying: str = "AAPL US
     ax2d = fig.add_subplot(122)
 
     expiries = sorted(iv_df["expiry"].unique())
-    cmap_lines = plt.get_cmap("tab10")
+    cmap_lines = plt.get_cmap("tab10") #type:ignore {matplotlib get_cmap exists but Pylance doesn't know that}
 
     for i, exp in enumerate(expiries):
         sub = iv_df[iv_df["expiry"] == exp].sort_values("strike")
