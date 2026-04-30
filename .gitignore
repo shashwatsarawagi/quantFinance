@@ -4,6 +4,7 @@ lib/
 include/
 pyvenv.cfg
 share/
+.conda/
 
 # Python cache
 __pycache__/
@@ -14,3 +15,6 @@ __pycache__/
 
 # OS stuff
 .DS_Store
+
+#Bloomberg API
+data/bn
