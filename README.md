@@ -1,3 +1,12 @@
-My attempt at transforming all those equations from the book into code!
+My attempt at transforming all those theory and equations from a book into reports and code!
+
+Note on AI: I have kept the usage of AI to a minimum as much as possible to genuinely pick up on the skills I attempted to program. For disclosure, it was used in three major ways throughout the programming aspects
+- building a logical and sensible pipeline. This was a largely one-sided usage as the AI guided me what kind of files I would probably need to make a logical pipeline. I usually did not follow the AI word-for-word because it sometimes recommended arbitrarily complex workflows. Instead, it was a mix of intuition and the AI output.
+- making matplotlib outputs prettier. Honestly, I wish I could say I had a flair for this stuff, but I do not. Most of the time, I would end up with actually workable data and a... "graph", but it was unbearably ugly. I usually just ask AI to then spruce it up with colours and whatever magic it does. That is another reason you may notice the matplotlib and plotting section of the code to be far less... in my style.
+- debugging. self-explanatory.
 
 https://www.linkedin.com/in/shashwat-sarawagi/
+
+The Quant folder focuses, as the name suggests, on quantitative finance projects, steering a bit into the area of algorithmic trading. The books that created this part of the repository are as follows
+1. Paul Wilmott on Quantitative Finance: A three-volume set of engaging and approachable breakdowns of the subject area. Some VBasic Code that did provide a good foundation for some of these, but largely a process of converting the formulae into a pipeline for the code, instead of just "translating" the VBasic, which tended to be less comprehensive.
+2. Python for Finance Book by Yves Hilpisch: A big fan. It has a solid walkthrough of the Python logic from scratch, which is included through files like dataScience.py where I cemented my Python skills.
