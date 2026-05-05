@@ -1,0 +1,14 @@
+Forward-start call option: Buying an option at t=0 for a strike price set at T1 later.
+Shout call option: Allowed to reset strike price to asset if becomes anything higher
+Parisian: payoff resets when in-barrier and accumulates for time outside
+Parasian: same as parisian without resets
+Correlation swap: exploit inefficiencies in pricing same instruments like index option vs basket of stock options
+
+Balloon: Quantity increases when certain conditions met
+Break forward: FX forward that can be terminated at certain times
+Contingent premium option: A premium is payed on conditions
+Coupe option: Strike is reset to min of underlying and previous strike
+Extendible option/swap: expiration can be extended
+Hawai'ian option: Asian and American haha
+Himalayan option: Multi asset where best stock is removed at sampling times till one at expiration
+HYPER option: High Yielding Performance Enhancing Reversible - American but multiexecution where each one flips C/P
