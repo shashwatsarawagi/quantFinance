@@ -11,3 +11,6 @@ __pycache__/
 #Bloomberg API
 PythonForFinance/impVolSurface/data
 PythonForFinance/impVolSurface/outputs
+
+#Copyrighted Algorithms
+Algo/AlgoYves
