@@ -18,6 +18,5 @@ The books that created this part of the repository are as follows
 2. Python for Finance Book by Yves Hilpisch: A big fan. It has a solid walkthrough of the Python logic from scratch, which is included through files like dataScience.py where I cemented my Python skills.
 
 # Algo
-$`\lambda`$
 The books that created this part of the repository are as follows
 1. Python for Algorithmic Trading by Yves Hilpisch: The code from this book is very straightforward, hence not included in this repository as the replication would be almost identical. That would, naturally, be a violation of its copyright. Nonetheless, an important founding brick for my understanding.
