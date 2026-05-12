@@ -181,5 +181,3 @@ def kalman_filter(xprices, yprices, delta=1e-4):
     pnl = np.nansum(lag(positions, 1) * returns, axis=1)
 
     return p, numUnits, pnl
-
-#Pg 81
