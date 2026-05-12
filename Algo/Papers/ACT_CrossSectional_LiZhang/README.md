@@ -19,9 +19,11 @@ ACT fixes these problems over the following steps:
 - ACF stacks the three embeddings and learns per-stock attention weights $`\alpha`$ via a two-layer attention MLP, allowing each stock to emphasise whichever component is currently most predictive.
 
 Now, for the loss function, the paper combines IC and MSE loss justifying this as "learns both correct cross-sectional ranking and reasonable return magnitude calibration". The loss is thus
+
 ```math
- \mathcal{L} = \mathcal{L}_{IC} + \lambda\mathcal{L}_{MSE} $$
+ \mathcal{L} = \mathcal{L}_{IC} + \lambda\mathcal{L}_{MSE}
 ```
+
 where $`\lambda\in[0, 1]`$
 
 Trading strategy (backtesting, as in the paper):
